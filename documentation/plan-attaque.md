@@ -71,7 +71,7 @@ Les livrables attendus sont :
 **Temps estimé :** 3h
 
 **Risques :**
-- Certaines routes peuvent être cachées → utiliser de meilleures wordlists
+- Certaines routes peuvent être cachées : utiliser de meilleures wordlists
 
 ---
 
@@ -121,8 +121,8 @@ Les livrables attendus sont :
 **Temps estimé :** 6h
 
 **Risques :**
-- Protection côté serveur → contourner avec encodage
-- Auth complexe → analyser tokens/session
+- Protection côté serveur : contourner avec encodage
+- Auth complexe : analyser tokens/session
 
 ---
 
@@ -165,7 +165,7 @@ Les livrables attendus sont :
 **Temps estimé :** 4h
 
 **Risques :**
-- Peu de logs exploitables → utiliser tcpdump
+- Peu de logs exploitables : utiliser tcpdump
 
 ---
 
