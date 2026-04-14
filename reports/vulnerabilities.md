@@ -61,3 +61,33 @@ Juice Shop est une application web intentionnellement vulnérable, conçue pour 
     - Implémenter une authentification à deux facteurs (2FA) pour renforcer la sécurité des comptes
     - Surveiller les tentatives de connexion et alerter en cas d'activité suspecte
     - Forcer l'utilisation de mots de passe forts et uniques pour tous les comptes utilisateurs et administrateurs
+
+## VULN-003 : Exposition de documents sensibles
+
+**Sévérité** : Moyenne
+
+**Description** : Des documents sensibles, tels que les conditions générales de vente (CGV), sont accessibles sans authentification, ce qui peut entraîner la divulgation d'informations confidentielles.
+
+**Procédure** : En accédant à l'URL spécifique des CGV, un utilisateur non authentifié peut visualiser et télécharger ces documents.
+
+**Procédure** :
+
+![Accès aux CGU sans authentification](../evidence/juice_shop/exposed_documents.png)
+
+![Contenu du dossier exposé](../evidence/juice_shop/easy_access_folder.png)
+
+![Document sensible exposé](../evidence/juice_shop/confidential_document_exposed.png)
+
+**Impact** :
+
+    - Divulgation d'informations confidentielles
+    - Potentiel de violation de la vie privée des utilisateurs
+    - Atteinte à la réputation de l'entreprise
+    - Responsabilité légale en cas de violation de données personnelles
+
+**Recommandations** :
+
+    - Restreindre l'accès aux documents sensibles en exigeant une authentification
+    - Mettre en place des contrôles d'accès basés sur les rôles pour limiter l'accès aux informations sensibles
+    - Assurer la sécurité des documents en les stockant dans un emplacement sécurisé et en utilisant des permissions appropriées
+    - Effectuer des audits réguliers pour identifier et corriger les vulnérabilités d'exposition de données
