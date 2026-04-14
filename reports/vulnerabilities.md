@@ -91,3 +91,31 @@ Juice Shop est une application web intentionnellement vulnérable, conçue pour 
     - Mettre en place des contrôles d'accès basés sur les rôles pour limiter l'accès aux informations sensibles
     - Assurer la sécurité des documents en les stockant dans un emplacement sécurisé et en utilisant des permissions appropriées
     - Effectuer des audits réguliers pour identifier et corriger les vulnérabilités d'exposition de données
+
+## VULN-004 : Poison Null Byte dans le dossier des fichiers
+
+**Sévérité** : Élevée
+
+**Description** : Le poison null byte est une technique d'attaque qui exploite la manière dont les applications traitent les chaînes de caractères. En insérant un caractère null (0x00) dans une requête, un attaquant peut contourner les contrôles de sécurité et accéder à des fichiers sensibles. Ce qui permet de contourner les restrictions d'accès et de visualiser des fichiers qui devraient être protégés.
+
+**Procédure** :
+
+![Document bloqué par une restriction d'accès](../evidence/juice_shop/restrained_document.png)
+
+![Download du document avec le poison null byte](../evidence/juice_shop/exposed_document_with_null.png)
+
+**Impact** :
+
+    - Accès non autorisé à des fichiers sensibles
+    - Compromission de l'application et des données sensibles
+    - Potentiel de modification ou suppression de données
+    - Utilisation de l'application pour des attaques ultérieures (pivoting)
+    - Perte de confiance des utilisateurs et atteinte à la réputation de l'entreprise
+    - Responsabilité légale en cas de violation de données personnelles
+
+**Recommandations** :
+
+    - Valider et assainir toutes les entrées utilisateur pour empêcher l'injection de caractères spéciaux
+    - Mettre en place des contrôles d'accès stricts pour protéger les fichiers sensibles
+    - Utiliser des bibliothèques de sécurité pour gérer les fichiers et les chemins d'accès de manière sécurisée
+    - Effectuer des tests de sécurité réguliers pour identifier et corriger les vulnérabilités d'injection de caractères spéciaux
