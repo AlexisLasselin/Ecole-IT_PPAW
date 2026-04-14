@@ -208,6 +208,7 @@ Mettre en place une invalidation des tokens après déconnexion
 
 
 **Recommandations** :
+
     - Mise en place d'un WAF (Web Application Firewall)
     - Configurer les droits de l'utilisateur de la base de données pour restreindre les types de requêtes autorisées sur la collection des coupons
     - Transformer l'entrée utilisateur en texte brut avant de l'envoyer à la base de données pour neutraliser les opérateurs NoSQL.
