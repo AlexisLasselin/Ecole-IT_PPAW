@@ -146,3 +146,39 @@ Juice Shop est une application web intentionnellement vulnérable, conçue pour 
     - Utiliser des bibliothèques de sécurité pour gérer les entrées utilisateur de manière sécurisée
     - Mettre en place une politique de gestion des erreurs qui ne divulgue pas d'informations sensibles
     - Effectuer des tests de sécurité réguliers pour identifier et corriger les vulnérabilités XSS
+
+                                        
+
+## VULN-006 : Token Sidejacking (Vol de session via token intercepté)
+
+**Sévérité** : Élevée
+
+**Description** : La vulnérabilité de type Token Sidejacking permet à un attaquant d’intercepter un token d’authentification transmis dans les requêtes HTTP (POST) et de l’utiliser pour usurper la session d’un utilisateur légitime.
+
+**Procédure** :
+
+-Interception de la requête via Burp Suite (Proxy → HTTP history).
+-Observation du token dans la requête :
+-Réutilisation du token dans une autre requête authentifiée : 
+-Accès autorisé sans authentification supplémentaire → session compromise.
+
+
+**Impact** :
+
+Usurpation de session utilisateur
+Accès non autorisé à des données sensibles
+Exécution d’actions au nom de la victime
+Compromission potentielle de comptes (y compris administrateur)
+
+**Facteurs aggravants observés** : 
+
+Token réutilisable sans mécanisme de protection contre le replay
+Absence de sécurisation stricte des cookies (HttpOnly, Secure)
+Durée de vie du token potentiellement longue
+
+**Recommandations** :
+
+Forcer l’utilisation de HTTPS pour toutes les communications
+Configurer les cookies avec HttpOnly, Secure et SameSite
+Réduire la durée de vie des tokens et implémenter des refresh tokens
+Mettre en place une invalidation des tokens après déconnexion
