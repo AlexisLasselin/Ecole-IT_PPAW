@@ -187,23 +187,27 @@ Mettre en place une invalidation des tokens après déconnexion
 
 **Sévérité** : Élevée
 
-**Description** :L'Injection NoSQL est une vulnérabilité qui survient lorsqu'une application envoie des données fournies par l'utilisateur à une base de données NoSQL (comme MongoDB) sans les nettoyer correctement. Au lieu de traiter l'entrée comme du texte simple, la base de données l'interprète comme une commande.
+**Description** : L'Injection NoSQL est une vulnérabilité qui survient lorsqu'une application envoie des données fournies par l'utilisateur à une base de données NoSQL (comme MongoDB) sans les nettoyer correctement. Au lieu de traiter l'entrée comme du texte simple, la base de données l'interprète comme une commande.
 
 **Procédure** :
 
--Interception de la requête via Burp Suite (Proxy → HTTP history)
--Observation de la structure JSON dans la requête
--Injection de caractères spéciaux pour tester le Sql
--Remplacement de  la chaîne de caractères par un objet malveillant simple
--Injection d'un opérateur NoSQL dans le paramètre
--Accès autorisé et application de la réduction
+    - Interception de la requête via Burp Suite (Proxy → HTTP history)
+    - Observation de la structure JSON dans la requête
+    - Injection de caractères spéciaux pour tester le Sql
+    - Remplacement de  la chaîne de caractères par un objet malveillant simple
+    - Injection d'un opérateur NoSQL dans le paramètre
+    - Accès autorisé et application de la réduction
+
+
 
 **Impact** :
--Possibilité d'appliquer des réductions sans posséder de code promo valide.
--Risque de voir des commandes validées à prix réduit ou gratuitement, impactant le chiffre d'affaires.
--Capacité à lister tous les coupons actifs de la base de données en manipulant les opérateurs.
+
+    - Possibilité d'appliquer des réductions sans posséder de code promo valide
+    - Capacité à lister tous les coupons actifs de la base de données en manipulant les opérateurs
+    - Risque de voir des commandes validées à prix réduit ou gratuitement, impactant le chiffre d'affaires
+
 
 **Recommandations** :
--Mise en place d'un WAF (Web Application Firewall)
--Configurer les droits de l'utilisateur de la base de données pour restreindre les types de requêtes autorisées sur la collection des coupons
--Transformer l'entrée utilisateur en texte brut avant de l'envoyer à la base de données (ex: String(req.body.coupon_code)) pour neutraliser les opérateurs NoSQL.
+    - Mise en place d'un WAF (Web Application Firewall)
+    - Configurer les droits de l'utilisateur de la base de données pour restreindre les types de requêtes autorisées sur la collection des coupons
+    - Transformer l'entrée utilisateur en texte brut avant de l'envoyer à la base de données pour neutraliser les opérateurs NoSQL.
