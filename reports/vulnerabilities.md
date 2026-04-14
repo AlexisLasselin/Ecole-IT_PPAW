@@ -41,7 +41,9 @@ Juice Shop est une application web intentionnellement vulnérable, conçue pour 
 
 **Procédure** :
 
-<!-- TODO -->
+![Brute Force sur le champ de login](../evidence/juice_shop/bruteforce_preparation.png)
+
+![Résultat du Brute Force](../evidence/juice_shop/bruteforce_results.png)
 
 **Impact** :
 
