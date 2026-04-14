@@ -1,4 +1,8 @@
-# Liste des vulnérabilités trouvées sur Juice Shop
+# Liste des vulnérabilités trouvées
+
+---
+
+Juice Shop est une application web intentionnellement vulnérable, conçue pour l'apprentissage de la sécurité informatique. Voici une liste des vulnérabilités identifiées lors de l'analyse de l'application :
 
 ## VULN-001 : SQL Injection dans le champ de login
 
