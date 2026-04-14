@@ -119,3 +119,30 @@ Juice Shop est une application web intentionnellement vulnérable, conçue pour 
     - Mettre en place des contrôles d'accès stricts pour protéger les fichiers sensibles
     - Utiliser des bibliothèques de sécurité pour gérer les fichiers et les chemins d'accès de manière sécurisée
     - Effectuer des tests de sécurité réguliers pour identifier et corriger les vulnérabilités d'injection de caractères spéciaux
+
+## VULN-005 : Stored XSS dans la barre de recherche
+
+**Sévérité** : Élevée
+
+**Description** : Une vulnérabilité de type Cross-Site Scripting (XSS) stocké a été identifiée dans la barre de recherche de l'application. Un attaquant peut injecter du code JavaScript malveillant qui sera stocké et exécuté chaque fois que la page contenant la barre de recherche est visitée. C'est à dire au démarrage de l'application, ou à chaque fois que l'utilisateur navigue vers la page d'accueil.
+
+**Procédure** :
+
+![Injection XSS dans la barre de recherche](../evidence/juice_shop/xss_in_search_bar.png)
+
+![Résultat de l'injection XSS](../evidence/juice_shop/stored_xss.png)
+
+**Impact** :
+
+    - Exécution de code malveillant dans le navigateur des utilisateurs
+    - Vol de cookies de session et d'informations d'identification
+    - Compromission de comptes utilisateurs
+    - Potentiel de modification ou suppression de données
+    - Utilisation de l'application pour des attaques ultérieures (pivoting)
+
+**Recommandations** :
+
+    - Valider et assainir toutes les entrées utilisateur pour empêcher l'injection de code malveillant
+    - Utiliser des bibliothèques de sécurité pour gérer les entrées utilisateur de manière sécurisée
+    - Mettre en place une politique de gestion des erreurs qui ne divulgue pas d'informations sensibles
+    - Effectuer des tests de sécurité réguliers pour identifier et corriger les vulnérabilités XSS
