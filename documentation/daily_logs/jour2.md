@@ -17,7 +17,7 @@ Objectif : Reconnaissance + premières vulnérabilités
 
 2. Premières Vulnérabilités
 
-   Comme vous le verrez dans [le rapport des vulnérabilités](Ecole-IT_PPAW/blob/doc/reports/vulnerabilities.md), nous avons identifié plusieurs vulnérabilités sur les deux applications. Voici un aperçu des principales découvertes :
+   Comme vous le verrez dans [le rapport des vulnérabilités](../reports/vulnerabilities.md), nous avons identifié plusieurs vulnérabilités sur les deux applications. Voici un aperçu des principales découvertes :
    - Juice Shop semble vulnérable à une injection SQL dans le champ de login, permettant un accès non autorisé au compte administrateur, ainsi qu'à une attaque de brute force sur le même champ. Mais également d'autres vulnérabilités comme des failles XSS, CSRF, etc.
    - crAPI présente des vulnérabilités d'exposition d'informations sensibles via les endpoints API, ainsi que des failles d'authentification faibles.
 
