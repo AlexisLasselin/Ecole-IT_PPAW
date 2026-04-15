@@ -41,7 +41,7 @@ En revanche, certaines sécurités étaient tout de même en place, un "antichea
 
 Nous avons commencé à automatiser certaines étapes de reconnaissance et d’exploitation des vulnérabilités à l’aide de scripts Python. Ces scripts permettent notamment de tester des injections SQL sur le système d’authentification, de réaliser des tentatives de brute force sur les comptes utilisateurs, ainsi que de détecter l’exposition de fichiers sensibles via le répertoire /ftp. Cela nous permet de gagner du temps lors de l’exploitation des vulnérabilités et de nous concentrer davantage sur l’analyse des résultats.
 
-Les scripts développés restent simples et peu structurés (niveau débutant), mais ils permettent déjà d’automatiser des tâches répétitives. Nous avons également rencontré quelques erreurs dans les scripts (ex : concaténation incorrecte de noms de fichiers), ce qui nous a permis d’identifier des problèmes classiques et de les corriger.
+Les scripts développés restent simples et peu structurés, mais ils permettent déjà d’automatiser des tâches répétitives. Nous avons également rencontré quelques erreurs dans les scripts (ex : concaténation incorrecte de noms de fichiers), ce qui nous a permis d’identifier des problèmes classiques et de les corriger.
 
 ---
 
