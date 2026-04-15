@@ -59,5 +59,3 @@ Nous avons aussi envisagé des scénarios combinant plusieurs vulnérabilités, 
 - Exploiter les vulnérabilités identifiées pour comprendre leur impact et les risques associés  
 - Documenter toutes les étapes de reconnaissance et d'exploitation dans le daily log et le rapport des vulnérabilités  
 - Commencer à travailler sur les recommandations de sécurité pour chaque vulnérabilité identifiée  
-- Approfondir les tests XSS (reflected et stored) et tester davantage d’endpoints API  
-- Améliorer les scripts d’automatisation (gestion des erreurs, parsing des réponses, ajout de nouveaux tests)
