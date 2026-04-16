@@ -1,8 +1,8 @@
-Daily Log - M1PPAW Projet 2 - Jour 4
+### Daily Log - M1PPAW Projet 2 - Jour 4
 
 Date : 16/04/2026
 Durée : 7h
-### Objectif du jour
+### Objectif du jour 
 Mettre en place :
 
  la protection applicative avec un WAF (ModSecurity)
