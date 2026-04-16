@@ -2,22 +2,24 @@
 
 Date : 14/04/2026  
 Durée : 7h  
-Objectif : Reconnaissance + premières vulnérabilités  
+Objectif : Reconnaissance + premières vulnérabilités
 
 ---
 
 ## 1. Reconnaissance
 
-L'équipe s'est répartie entre deux cibles : Juice Shop et crAPI. Nous avons utilisé les outils suivants pour la reconnaissance :  
-- Nmap : pour scanner les ports ouverts  
-- Gobuster : pour découvrir les répertoires cachés  
-- Burp Suite : pour intercepter les requêtes HTTP  
+L'équipe s'est répartie entre deux cibles : Juice Shop et crAPI. Nous avons utilisé les outils suivants pour la reconnaissance :
+
+- Nmap : pour scanner les ports ouverts
+- Gobuster : pour découvrir les répertoires cachés
+- Burp Suite : pour intercepter les requêtes HTTP
 
 Nous avons également utilisé une approche manuelle en naviguant dans les applications afin d’identifier les fonctionnalités principales (login, recherche, panier, API). L’analyse des requêtes interceptées dans Burp Suite nous a permis d’identifier plusieurs endpoints importants comme `/rest/user/login`, `/rest/products/search` ou encore `/rest/user/whoami`.
 
-Résultats :  
-- Juice Shop : ports 3000 (HTTP) ouverts, plusieurs répertoires découverts (/admin, /api, /ftp)  
-- crAPI : ports 80 (HTTP) ouverts, répertoires découverts (/api, /docs)  
+Résultats :
+
+- Juice Shop : ports 3000 (HTTP) ouverts, plusieurs répertoires découverts (/admin, /api, /ftp)
+- crAPI : ports 80 (HTTP) ouverts, répertoires découverts (/api, /docs)
 
 Nous avons également observé que certaines routes ne sont pas directement visibles dans l’interface mais peuvent être découvertes via des outils comme Gobuster ou en analysant les requêtes réseau.
 
@@ -25,9 +27,10 @@ Nous avons également observé que certaines routes ne sont pas directement visi
 
 ## 2. Premières Vulnérabilités
 
-Comme vous le verrez dans [le rapport des vulnérabilités](../reports/vulnerabilities.md), nous avons identifié plusieurs vulnérabilités sur les deux applications. Voici un aperçu des principales découvertes :  
-- Juice Shop semble vulnérable à une injection SQL dans le champ de login, permettant un accès non autorisé au compte administrateur, ainsi qu'à une attaque de brute force sur le même champ. Mais également d'autres vulnérabilités comme des failles XSS, CSRF, etc.  
-- crAPI présente des vulnérabilités d'exposition d'informations sensibles via les endpoints API, ainsi que des failles d'authentification faibles.  
+Comme vous le verrez dans [le rapport des vulnérabilités](../reports/vulnerabilities.md), nous avons identifié plusieurs vulnérabilités sur les deux applications. Voici un aperçu des principales découvertes :
+
+- Juice Shop semble vulnérable à une injection SQL dans le champ de login, permettant un accès non autorisé au compte administrateur, ainsi qu'à une attaque de brute force sur le même champ. Mais également d'autres vulnérabilités comme des failles XSS, CSRF, etc.
+- crAPI présente des vulnérabilités d'exposition d'informations sensibles via les endpoints API, ainsi que des failles d'authentification faibles.
 
 Nous avons également identifié une vulnérabilité de type **File Access / Security Misconfiguration** sur Juice Shop, permettant l’accès à des fichiers sensibles via le répertoire `/ftp` (ex : `package.json`, `acquisitions.md`). Certains de ces fichiers contiennent des informations internes ou confidentielles.
 
@@ -55,7 +58,7 @@ Nous avons aussi envisagé des scénarios combinant plusieurs vulnérabilités, 
 
 ## 5. Prochaines étapes
 
-- Continuer la reconnaissance pour identifier d'autres vulnérabilités potentielles  
-- Exploiter les vulnérabilités identifiées pour comprendre leur impact et les risques associés  
-- Documenter toutes les étapes de reconnaissance et d'exploitation dans le daily log et le rapport des vulnérabilités  
-- Commencer à travailler sur les recommandations de sécurité pour chaque vulnérabilité identifiée  
+- Continuer la reconnaissance pour identifier d'autres vulnérabilités potentielles
+- Exploiter les vulnérabilités identifiées pour comprendre leur impact et les risques associés
+- Documenter toutes les étapes de reconnaissance et d'exploitation dans le daily log et le rapport des vulnérabilités
+- Commencer à travailler sur les recommandations de sécurité pour chaque vulnérabilité identifiée
